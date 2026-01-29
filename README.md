@@ -1,82 +1,95 @@
-# Portfolio Optimization Project
+# Portfolio Optimization & Time Series Forecasting
 
-## Overview
-
-This repository contains work on forecasting and analyzing financial assets, with a focus on Tesla (TSLA), SPY, and BND. Tasks 1 and 2 involve data preprocessing, exploratory analysis, and building time series forecasting models for Tesla's stock price.
+This project applies **time series forecasting** and **portfolio optimization techniques** to enhance investment strategies for GMF Investments. The goal is to leverage predictive models and Modern Portfolio Theory (MPT) to construct an optimized portfolio and validate its performance through backtesting.
 
 ---
 
-## Task 1 – Data Preparation and Exploratory Analysis
+## 📌 Business Objective
 
-**Objective:**  
-Prepare historical price data for analysis, ensure data quality, and understand patterns in returns and volatility.
+GMF Investments is a forward-thinking financial advisory firm specializing in personalized portfolio management. By integrating advanced time series forecasting models, GMF aims to:
 
-**Key Steps:**  
-1. Downloaded historical daily price data for TSLA, SPY, and BND (2015–2026).  
-2. Flattened MultiIndex columns for ease of analysis.  
-3. Checked for missing values — none were found.  
-4. Identified outliers, mostly corresponding to major market events (e.g., COVID-19 crash, quarterly TSLA announcements).  
-5. Performed stationarity tests (ADF test) on each series. All series were non-stationary, requiring differencing for modeling.
+- Predict market trends
+- Optimize asset allocation
+- Enhance portfolio performance
 
-**Stationarity Test Results:**  
+The ultimate goal is to help clients achieve their financial objectives by minimizing risk while capitalizing on market opportunities.
 
-| Asset | ADF Statistic | p-value | Stationarity |
-|-------|---------------|---------|--------------|
-| TSLA  | -0.780        | 0.825   | Non-stationary |
-| SPY   | 1.171         | 0.996   | Non-stationary |
-| BND   | -1.051        | 0.734   | Non-stationary |
-
-**Insights:**  
-- Non-stationary series need differencing for ARIMA or other time series models.  
-- Tesla shows high volatility and large swings, which will impact modeling decisions.  
+> **Note:** While predicting exact stock prices is challenging due to the Efficient Market Hypothesis, forecasting models are used to anticipate volatility, identify trends, and inform decision-making within a broader investment framework.
 
 ---
 
-## Task 2 – Time Series Forecasting Models
+## 🛠 Project Tasks
 
-**Objective:**  
-Develop, train, and evaluate ARIMA and LSTM models to forecast Tesla's future stock prices.
+### **Task 1 – Data Preprocessing & Exploratory Analysis**
+- Extract historical financial data for TSLA, SPY, and BND using the YFinance API (2015–2026)
+- Clean and preprocess data (handle missing values, scale/normalize as needed)
+- Conduct exploratory data analysis (EDA) including trends, volatility, seasonality, and outlier detection
+- Test for stationarity (Augmented Dickey-Fuller test)
+- Calculate basic risk metrics: Sharpe Ratio, Value at Risk (VaR)
 
-**Data Preparation:**  
-- Split chronologically: training (2015–2024) and testing (2025–2026).  
-- Preserved temporal order to prevent data leakage.
-
-**Models Implemented:**  
-
-1. **ARIMA**  
-   - Linear statistical model capturing short-term dependencies.  
-   - Parameters selected via auto_arima and ACF/PACF analysis.  
-
-2. **LSTM (Long Short-Term Memory)**  
-   - Deep learning model capable of capturing complex temporal dependencies.  
-   - Sequence length: 60 days.  
-   - Architecture: one or more LSTM layers followed by a Dense output layer.  
-   - Hyperparameters tuned for epochs, batch size, and learning rate.
-
-**Model Performance Comparison:**  
-
-| Model | MAE     | RMSE    | MAPE (%) |
-|-------|---------|---------|----------|
-| ARIMA | 69.50   | 82.93   | 22.56    |
-| LSTM  | 18.80   | 22.65   | 5.62     |
-
-**Insights:**  
-- LSTM outperforms ARIMA across all metrics due to its ability to handle non-linear and volatile price movements.  
-- ARIMA can be used for simpler and more interpretable models, especially when volatility is moderate.  
-- LSTM is recommended for short-term Tesla price forecasting.
+**Deliverables:**
+- Jupyter Notebook with EDA code and visualizations
+- Summary of data quality issues
+- Stationarity test results with interpretation
+- At least 3 insightful visualizations
 
 ---
 
-## Deliverables
+### **Task 2 – Time Series Forecasting**
+- Split data into training and testing sets chronologically
+- Build and optimize ARIMA/SARIMA and LSTM models
+- Evaluate models using MAE, RMSE, and MAPE
+- Compare models and select the best-performing one
 
-- Processed historical price data.  
-- ARIMA and LSTM models with documented parameters.  
-- Model comparison and evaluation metrics.  
-- Recommendations based on model performance.
+**Deliverables:**
+- Trained ARIMA/SARIMA and LSTM models
+- Model comparison table
+- Discussion of model selection rationale
 
 ---
 
-## Next Steps
+### **Task 3 – Forecast Future Market Trends**
+- Generate 6–12 month forecasts using the best model
+- Visualize predictions with confidence intervals
+- Identify trends, market opportunities, and risks
+- Assess reliability of forecast over time
 
-- Explore ensemble models combining ARIMA and LSTM predictions.  
-- Extend forecasts to other assets (SPY, BND) for portfolio-level optimization.  
+**Deliverables:**
+- Forecast visualization
+- Trend analysis summary
+- List of opportunities and risks
+- Critical assessment of forecast reliability
+
+---
+
+### **Task 4 – Portfolio Optimization**
+- Compute expected returns for all assets (forecasted for TSLA, historical for BND & SPY)
+- Calculate covariance matrix and generate the Efficient Frontier
+- Identify key portfolios: Maximum Sharpe Ratio and Minimum Volatility
+- Recommend the optimal portfolio with weights, expected return, volatility, and Sharpe Ratio
+
+**Deliverables:**
+- Efficient Frontier plot with key portfolios marked
+- Covariance matrix heatmap
+- Final portfolio recommendation with metrics
+- Written justification for portfolio selection
+
+---
+
+### **Task 5 – Strategy Backtesting**
+- Define backtesting period (Jan 2025 – Jan 2026)
+- Benchmark: 60% SPY / 40% BND
+- Simulate the optimized portfolio performance (hold or rebalance monthly)
+- Analyze cumulative returns and calculate key metrics: Total Return, Annualized Return, Sharpe Ratio, Max Drawdown
+- Compare strategy against benchmark and evaluate viability
+
+**Deliverables:**
+- Cumulative returns comparison plot (strategy vs. benchmark)
+- Performance metrics table
+- Written conclusion on strategy viability
+
+---
+
+## 📁 Project Structure
+
+
