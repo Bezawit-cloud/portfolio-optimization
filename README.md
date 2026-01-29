@@ -19,6 +19,27 @@ The ultimate goal is to help clients achieve their financial objectives by minim
 ---
 
 ## 🛠 Project Tasks
+portfolio-optimization/
+├── .vscode/
+│ └── settings.json
+├── .github/
+│ └── workflows/
+│ └── unittests.yml
+├── .gitignore
+├── requirements.txt
+├── README.md
+├── data/
+│ └── processed/
+├── notebooks/
+│ ├── init.py
+│ └── README.md
+├── src/
+│ └── init.py
+├── tests/
+│ └── init.py
+└── scripts/
+└── init.py
+
 
 ### **Task 1 – Data Preprocessing & Exploratory Analysis**
 - Extract historical financial data for TSLA, SPY, and BND using the YFinance API (2015–2026)
@@ -91,5 +112,25 @@ The ultimate goal is to help clients achieve their financial objectives by minim
 ---
 
 ## 📁 Project Structure
+portfolio-optimization/
+├── .vscode/
+│ └── settings.json
+├── .github/
+│ └── workflows/
+│ └── unittests.yml
+├── .gitignore
+├── requirements.txt
+├── README.md
+├── data/
+│ └── processed/
+├── notebooks/
+│ ├── init.py
+│ └── README.md
+├── src/
+│ └── init.py
+├── tests/
+│ └── init.py
+└── scripts/
+└── init.py
 
 
